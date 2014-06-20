@@ -2,8 +2,8 @@ use CodeMuse;
 warnings
 
 INSERT INTO difficulty (pDifficulty, difName) VALUES(1, "Mild");
-INSERT INTO difficulty (pDifficulty, difName) VALUES(1, "Medium");
-INSERT INTO difficulty (pDifficulty, difName) VALUES(1, "Hot");
+INSERT INTO difficulty (pDifficulty, difName) VALUES(2, "Medium");
+INSERT INTO difficulty (pDifficulty, difName) VALUES(3, "Hot");
 
 
 # For updates to this file, see http://27.org/isocountrylist/
