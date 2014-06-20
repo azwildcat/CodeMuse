@@ -57,9 +57,15 @@ p {
   line-height: 23px;
 }
 .button {
-  display: inline-block;
+  display: block;
+  max-width: 80px;
+  min-width: 80px;
+  margin-right: auto;
+  margin-left: auto;
   padding: 18px 21px;
-  border-radius: 5px;
+  float: none;
+  clear: none;
+  border-radius: 7px;
   background-color: #2e7bf0;
   box-shadow: rgba(255, 255, 255, 0.29) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.27) 0px 2px 11px 0px;
   -webkit-transition: background-color 300ms ease;
@@ -87,7 +93,8 @@ p {
 .section.hero {
   overflow-x: visible;
   overflow-y: visible;
-  height: 785px;
+  height: 100%;
+  min-height: 800px;
   padding-bottom: 60px;
   float: none;
   background-image: url('../images/pattern-a3lu.png');
@@ -270,11 +277,10 @@ p {
   float: left;
 }
 .savebutton {
-  display: inline-block;
+  display: block;
   min-height: 58px;
   min-width: 80px;
-  margin-bottom: 9px;
-  margin-left: 9px;
+  margin: 7px auto 9px;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
@@ -289,14 +295,39 @@ p {
   text-shadow: black 1px 1px 6px;
 }
 .skilllist {
+  display: block;
+  width: 20%;
   margin-top: 12px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .profileformlabel {
+  display: block;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  clear: both;
   color: white;
+  text-align: center;
   text-shadow: rgba(255, 255, 255, 0.24) 0px 1px 0px, black 0px 2px 0px;
 }
 .profileform {
+  height: 100%;
   background-color: rgba(54, 54, 54, 0.47);
+}
+.form-field {
+  position: static;
+  display: block;
+  overflow-x: visible;
+  overflow-y: visible;
+  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  float: none;
+  clear: none;
+  border: 0px solid black;
+  border-radius: 9px;
+  text-align: left;
 }
 @media (max-width: 991px) {
   p {
@@ -316,6 +347,9 @@ p {
   }
   .hero-subtitle {
     text-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px;
+  }
+  .savebutton {
+    margin-top: 8px;
   }
 }
 @media (max-width: 767px) {
