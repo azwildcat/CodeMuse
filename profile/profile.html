@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Jun 20 2014 20:34:23 GMT+0000 (UTC) -->
+<html data-wf-site="53a46fb624f5e79921e2d8eb">
+<head>
+  <meta charset="utf-8">
+  <title>Code Muse - Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/code-muse.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700","Bitter:400,700,400italic"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+  <link rel="apple-touch-icon" href="images/webclip-slate.png">
+</head>
+<body>
+  <header class="navbar">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-4">
+          <img class="logo" src="images/logo-header.png" width="25" alt="530e4fc7f4a216ca3c0000e1_logo-header.png">
+          <div class="app-name">slate</div>
+        </div>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="#">Features</a><a class="nav-link" href="#page-nav-share">Download</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="section hero">
+    <div class="w-tabs" data-duration-in="300" data-duration-out="100" data-easing="ease-in">
+      <div class="w-tab-menu">
+        <a class="w-tab-link w--current w-inline-block" data-w-tab="Basic Information">
+          <div>Basic information</div>
+        </a>
+        <a class="w-tab-link w-inline-block" data-w-tab="Skills">
+          <div>Skills</div>
+        </a>
+      </div>
+      <div class="w-tab-content">
+        <div class="w-tab-pane w--tab-active" data-w-tab="Basic Information">
+          <div>
+            <div class="w-form">
+              <form class="profileform" id="email-form" name="email-form" data-name="Email Form" method="post">
+                <label class="profileformlabel" for="name"><span>Name:</span>
+                </label>
+                <input class="w-input" id="name" type="text" placeholder="Enter your name" name="name" data-name="Name">
+                <label class="profileformlabel" for="email">Email Address:</label>
+                <input class="w-input" id="email" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required">
+                <input class="w-button savebutton" type="submit" value="Save" data-wait="Please wait...">
+              </form>
+              <div class="w-form-done">
+                <p>Thank you! Your submission has been received!</p>
+              </div>
+              <div class="w-form-fail">
+                <p>Oops! Something went wrong while submitting the form :(</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-tab-pane" data-w-tab="Skills">
+          <div class="w-form">
+            <form class="profileform" id="email-form-2" name="email-form-2" data-name="Email Form 2">
+              <select class="w-select skilllist" id="field" name="field">
+                <option value="">Select one...</option>
+                <option value="First">First Choice</option>
+                <option value="Second">Second Choice</option>
+                <option value="Third">Third Choice</option>
+              </select><a class="button" href="#">Add</a>
+              <input class="w-button savebutton" type="submit" value="Save" data-wait="Please wait...">
+            </form>
+            <div class="w-form-done">
+              <p>Thank you! Your submission has been received!</p>
+            </div>
+            <div class="w-form-fail">
+              <p>Oops! Something went wrong while submitting the form :(</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
