@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Fri Jun 20 2014 21:13:04 GMT+0000 (UTC) -->
+<!-- Last Published: Fri Jun 20 2014 21:52:22 GMT+0000 (UTC) -->
 <html data-wf-site="53a46fb624f5e79921e2d8eb">
 <head>
   <meta charset="utf-8">
@@ -41,10 +41,10 @@
         <a class="w-tab-link w-inline-block" data-w-tab="Basic Information">
           <div>Basic information</div>
         </a>
-        <a class="w-tab-link w-inline-block" data-w-tab="Skills">
+        <a class="w-tab-link w--current w-inline-block" data-w-tab="Skills">
           <div>Skills</div>
         </a>
-        <a class="w-tab-link w--current w-inline-block" data-w-tab="Account Settings">
+        <a class="w-tab-link w-inline-block" data-w-tab="Account Settings">
           <div>Account Settings</div>
         </a>
       </div>
@@ -53,15 +53,15 @@
           <div>
             <div class="w-form">
               <form class="profileform" id="email-form" name="email-form" data-name="Email Form" method="post">
-                <label class="profileformlabel" for="first-name"><span>First Name:</span>
+                <label class="profileformlabel" for="first-name"><span>First Name</span>
                 </label>
-                <input class="w-input" id="first-name" type="text" placeholder="First Name" name="first-name" data-name="First Name" required="required">
-                <label class="profileformlabel" for="last-name">Last Name:</label>
-                <input class="w-input" id="last-name" type="text" placeholder="Last Name" name="last-name" required="required" data-name="Last Name">
-                <label class="profileformlabel" for="email">Email Address:</label>
-                <input class="w-input" id="email" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required">
-                <label class="profileformlabel" for="state-abbreviation">State:</label>
-                <select class="w-select" id="state-abbreviation" name="state-abbreviation" data-name="State Abbreviation" required="required">
+                <input class="w-input form-field" id="first-name" type="text" placeholder="First Name" name="first-name" data-name="First Name" required="required">
+                <label class="profileformlabel" for="last-name">Last Name</label>
+                <input class="w-input form-field" id="last-name" type="text" placeholder="Last Name" name="last-name" required="required" data-name="Last Name">
+                <label class="profileformlabel" for="email">Email Address</label>
+                <input class="w-input form-field" id="email" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required">
+                <label class="profileformlabel" for="state-abbreviation">State</label>
+                <select class="w-select form-field" id="state-abbreviation" name="state-abbreviation" data-name="State Abbreviation" required="required">
                   <option value="">Select one...</option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -125,7 +125,7 @@
             </div>
           </div>
         </div>
-        <div class="w-tab-pane" data-w-tab="Skills">
+        <div class="w-tab-pane w--tab-active" data-w-tab="Skills">
           <div class="w-form">
             <form class="profileform" id="email-form-2" name="email-form-2" data-name="Email Form 2">
               <select class="w-select skilllist" id="field" name="field">
@@ -144,15 +144,15 @@
             </div>
           </div>
         </div>
-        <div class="w-tab-pane w--tab-active" data-w-tab="Account Settings">
+        <div class="w-tab-pane" data-w-tab="Account Settings">
           <div class="w-form">
-            <form id="email-form-3" name="email-form-3" data-name="Email Form 3">
-              <label class="profileformlabel" for="old-password">Old Password:</label>
-              <input class="w-input" id="old-password" type="password" placeholder="Old Password" name="old-password" required="required" data-name="Old Password">
-              <label class="profileformlabel" for="new-password">New Password:</label>
-              <input class="w-input" id="new-password" type="text" placeholder="New Password" name="new-password" required="required" data-name="New Password">
-              <label class="profileformlabel" for="new-password-2">Confirm New Password:</label>
-              <input class="w-input" id="new-password-2" type="text" placeholder="Confirm New Password" name="new-password-2" required="required" data-name="New Password 2">
+            <form class="profileform" id="email-form-3" name="email-form-3" data-name="Email Form 3">
+              <label class="profileformlabel" for="old-password">Old Password</label>
+              <input class="w-input form-field" id="old-password" type="password" placeholder="Old Password" name="old-password" required="required" data-name="Old Password">
+              <label class="profileformlabel" for="new-password">New Password</label>
+              <input class="w-input form-field" id="new-password" type="text" placeholder="New Password" name="new-password" required="required" data-name="New Password">
+              <label class="profileformlabel" for="new-password-2">Confirm New Password</label>
+              <input class="w-input form-field" id="new-password-2" type="text" placeholder="Confirm New Password" name="new-password-2" required="required" data-name="New Password 2">
               <input class="w-button savebutton" type="submit" value="Submit" data-wait="Please wait...">
             </form>
             <div class="w-form-done">
