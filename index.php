@@ -31,6 +31,22 @@
       <div class="w-container">
         <h1 id="page-nav-Section-1">CodeMuse&nbsp;</h1>
         <div class="subtitle">A friend in need is a coder indeed.</div>
+        <div class="subtitle">
+          <?php
+            require("dblogin.php");
+            $sql = mysql_connect(DB_IP_ADDRESS,
+                                 DB_USERNAME,
+                                 DB_PASSWORD
+                                 );
+            mysql_select_db(DB_DATABASE_NAME);
+            if ($sql) {
+              echo "SUCCESS";
+            } else {
+              echo "FAILED";
+            }
+                              
+          ?>
+        </div>
       </div>
     </div>
   </div>

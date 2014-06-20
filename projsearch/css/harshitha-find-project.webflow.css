@@ -136,7 +136,7 @@ p {
   width: auto;
   padding-top: 33px;
   padding-bottom: 33px;
-  background-image: url('../images/example-bg_2.png');
+  background-image: url('../images/example-bg_1.png');
 }
 .subtitle {
   margin-bottom: 18px;
@@ -227,14 +227,36 @@ p {
   padding-top: 39px;
   padding-bottom: 39px;
   background-color: lightgrey;
-  background-image: url('../images/bg.JPG');
+  background-image: url('../images/example-bg.png');
   background-attachment: fixed;
 }
 .content-bg.two {
-  background-image: url('../images/example-bg_1.png');
+  background-image: url('../images/example-bg_2.png');
 }
 .example-image {
   width: 100%;
+}
+.searchprojbutton {
+  float: right;
+}
+.seachprojtext {
+  padding-left: 141px;
+}
+.projcards {
+  display: block;
+  margin-left: auto;
+  padding-left: 173px;
+}
+.projnavpan {
+  padding: 41px 115px 0px 45px;
+  font-size: 19px;
+  line-height: 30px;
+  font-weight: 400;
+}
+.projsearchclass {
+  margin-right: -98px;
+  padding-right: 94px;
+  float: none;
 }
 @media (max-width: 991px) {
   .button {
@@ -256,6 +278,17 @@ p {
     -webkit-transition: all 200ms ease;
     -o-transition: all 200ms ease;
     transition: all 200ms ease;
+  }
+  .searchprojbutton {
+    display: block;
+    margin-right: auto;
+    margin-left: 100px;
+    padding-left: 4px;
+    float: right;
+    text-align: center;
+  }
+  .seachprojtext {
+    padding-left: 115px;
   }
 }
 @media (max-width: 767px) {
