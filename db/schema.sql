@@ -32,6 +32,11 @@ CREATE TABLE project_tag (
         PRIMARY KEY (pID, tagName)
 );
 
+CREATE TABLE featured (
+    pID         INT NOT NULL PRIMARY KEY,
+        FOREIGN KEY (pID) REFERENCES project (pID)
+);
+
 
 
 CREATE TABLE city (
