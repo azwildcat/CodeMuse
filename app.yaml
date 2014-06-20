@@ -10,5 +10,8 @@ handlers:
 - url: /js
   static_dir: js
 
+- url: /profile
+  static_dir: profile
+
 - url: /.*
   script: index.php

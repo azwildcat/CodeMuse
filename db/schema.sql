@@ -3,6 +3,11 @@ CREATE DATABASE CodeMuse;
 use CodeMuse;
 warnings
 
+CREATE TABLE difficulty (
+    pDifficulty INT NOT NULL PRIMARY KEY,
+    difName     VARCHAR(30) NOT NULL
+);
+
 CREATE TABLE project (
     pID         INT NOT NULL PRIMARY KEY,
     pName       VARCHAR(100),
@@ -13,32 +18,16 @@ CREATE TABLE project (
         FOREIGN KEY (pDifficulty) REFERENCES difficulty (pDifficulty)
 );
 
-
-CREATE TABLE difficulty (
-    pDifficulty INT NOT NULL PRIMARY KEY,
-    difName     VARCHAR(30) NOT NULL
-);
-
-
 CREATE TABLE tag (
     tagName     VARCHAR(30) NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE project_tag (
-    pID         INT NOT NULL PRIMARY KEY,
-    tagName     VARCHAR(30) NOT NULL PRIMARY KEY,
+    pID         INT NOT NULL,
+    tagName     VARCHAR(30) NOT NULL,
         FOREIGN KEY (pID) REFERENCES project (pID),
         FOREIGN KEY (tagName) REFERENCES tag (tagName),
         PRIMARY KEY (pID, tagName)
-);
-
-
-
-CREATE TABLE city (
-    cityAbbr     VARCHAR(5) NOT NULL PRIMARY KEY,
-    cityName     VARCHAR(30) NOT NULL,
-    stateAbbr     VARCHAR(2) NOT NULL,
-        FOREIGN KEY (stateAbbr) REFERENCES state (stateAbbr)
 );
 
 CREATE TABLE state (
@@ -46,7 +35,12 @@ CREATE TABLE state (
     stateName     VARCHAR(30) NOT NULL
 );
 
-
+CREATE TABLE city (
+    cityAbbr     VARCHAR(5) NOT NULL PRIMARY KEY,
+    cityName     VARCHAR(30) NOT NULL,
+    stateAbbr     VARCHAR(2) NOT NULL,
+        FOREIGN KEY (stateAbbr) REFERENCES state (stateAbbr)
+);
 
 CREATE TABLE user (
     userID        INT NOT NULL PRIMARY KEY,
