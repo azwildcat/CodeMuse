@@ -35,6 +35,11 @@ CREATE TABLE state (
     stateName     VARCHAR(30) NOT NULL
 );
 
+CREATE TABLE featured (
+    pID         INT NOT NULL PRIMARY KEY,
+        FOREIGN KEY (pID) REFERENCES project (pID)
+);
+
 CREATE TABLE city (
     cityAbbr     VARCHAR(5) NOT NULL PRIMARY KEY,
     cityName     VARCHAR(30) NOT NULL,
