@@ -9,13 +9,15 @@
           if (!$db || $db->connect_error)
             die("failed to connect to database");
 
-      $projectname = $_POST['projectname'];
-      $tagline = $_POST['tagline'];
-      $description = $_POST['description'];
-      $details = $_POST['details'];
-      $difficulty = $_POST['difficulty'];
+      $projectname = mysql_real_escape_string($_POST['projectname']);
+      $tagline = mysql_real_escape_string($_POST['tagline']);
+      $description = mysql_real_escape_string($_POST['description']);
+      $details = mysql_real_escape_string($_POST['details']);
 
-      $query = "INSERT INTO project(pName, pTagline, pDescr, pDetails, pDifficulty)VALUES('$projectname','$tagline','$description','$details','$difficulty');"; 
+      $difficulty = $("#spiciness option:selected").val();
+
+
+      $query = "INSERT INTO project (pName, pTagline, pDescr, pDetails, pDifficulty) VALUES ('$projectname','$tagline','$description','$details','$difficulty');"; 
       if(mysql_query($query))
       { 
         echo "inserted";
@@ -31,4 +33,5 @@
       $tags = $_POST['tags'];
       $query = "INSERT INTO project_tag(pID, tagName)VALUES('$project_id','$tags')"; 
 */
+      mysql_close($db);
     ?>
