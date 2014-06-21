@@ -12,43 +12,58 @@ if (mysqli_connect_errno()) {
     $sql = "SELECT * FROM project";
     $result = mysqli_query($con,$sql);
 ?>
-
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
-<!-- Last Published: Sat Jun 21 2014 00:05:43 GMT+0000 (UTC) -->
-<html data-wf-site="53a47e7024f5e79921e2da9d">
+<!-- Last Published: Sat Jun 21 2014 07:25:06 GMT+0000 (UTC) -->
+<html data-wf-site="53a510758b680c4d190ddb90">
 <head>
   <meta charset="utf-8">
-  <title>harshitha_find_project</title>
+  <title>Slate Template</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Webflow">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/webflow.css">
   <link rel="stylesheet" type="text/css" href="css/find-project.webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/code-muse.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700","Bitter:400,700,400italic"]
+      }
+    });
+  </script>
   <script type="text/javascript" src="js/modernizr.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
-  <link rel="apple-touch-icon" href="images/thumbnail-starter.png">
+  <link rel="apple-touch-icon" href="images/webclip-slate.png">
 </head>
 <body>
-  <div class="section header">
+  <header class="w-clearfix navbar"><a class="button project-button" href="projects-landing-page.php">Projects</a>
     <div class="w-container">
       <div class="w-row">
-        <div class="w-col w-col-4 company-column">
-          <div class="company-title">CodeMuse</div>
+        <div class="w-col w-col-4">
+          <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png" href="index.php">
+          <div class="app-name">Codemuse</div>
         </div>
-        <div class="w-col w-col-8 nav-bar"><a class="nav-link" href="#page-nav-Section-3" target="_self">Log-In</a><a class="nav-link sign-up" href="mailto:support@webflow.com?subject=Sign me up!" target="_blank">Sign Up</a>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
       </div>
     </div>
-  </div>
-  <div>
-    <div class="hero-bg">
+  </header>
+
+  <div class="section hero">
+    <div class="w-row">
+      <div class="w-col w-col-6">
+        <!img src="images/android.png" width="300" alt="53a5122b8b680c4d190ddbae_android.png">
       <div class="w-container">
         <h1 id="page-nav-Section-1">PROJECTS</h1>
-        <div class="subtitle">Find exciting projects!</div>
+        <div class="subtitle"><font color="white">Find exciting projects!</font></div>
+      </div>
       </div>
     </div>
   </div>
+
+
   <div class="section">
     <div class="w-container">
       <div class="w-form w-clearfix projsearchclass">
