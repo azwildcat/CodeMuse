@@ -35,7 +35,7 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
         <input class="w-input" id="projectname" type="text" placeholder="Enter project name" name="projectname" required="required" autofocus="autofocus">
         <label for="lastname">Tagline:</label>
         <input class="w-input" id="tagline" type="text" placeholder="Enter a one-sentence description of your project" name="tagline" required="required">
-        <label for="email">Description:</label>
+        <label for="description">Description:</label>
         <textarea class="w-input" id="description" placeholder="Describe your project" name="description"></textarea>
         <label for="tags">Location:</label>
         <select class="w-select" id="state" name="state" data-name="State">
@@ -70,6 +70,29 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
         <p>Oops! Something went wrong while submitting the form :(</p>
       </div>
     </div>
+    <?php
+      $projectname = $_POST['projectname'];
+      $tagline = $_POST['tagline'];
+      $description = $_POST['description'];
+      $details = $_POST['details'];
+      $difficulty = $_POST['difficulty'];
+
+      $query = "INSERT INTO project(pName, pTagline, pDescr, pDetails, pDifficulty)VALUES('$projectname','$tagline','$description','$details','$difficulty');"; 
+
+      if(mysql_query($query))
+      { 
+        echo "inserted";
+      } 
+      else
+      { 
+        echo "fail";
+      }
+/*
+      $project_id = mysql_return_id();
+      $tags = $_POST['tags'];
+      $query = "INSERT INTO project_tag(pID, tagName)VALUES('$project_id','$tags')"; 
+*/
+    ?>
   </div>
 <div class="section">
     <div class="w-container">
