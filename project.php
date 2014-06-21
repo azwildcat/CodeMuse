@@ -39,25 +39,6 @@ session_start();
       </div>
     </div>
   </header>
-  <div class="section hero">
-    <div class="w-row">
-      <div class="w-col w-col-6">
-        <img src="images/android.png" width="700" alt="53a5122b8b680c4d190ddbae_android.png">
-        <p align="center">
-          Featured technology of the month: Android!
-        </p>
-      </div>
-      <div class="w-col w-col-6 call-to-action">
-        <h1 class="hero-header">A friend in need is a coder indeed.</h1>
-        <p>
-          With CodeMuse, you can work on what matters. Hone your skills while
-          making a difference in someone's life. Help the causes you care about
-          and see just how far you can go with a little bit of technical
-          knowledge.
-        </p><a class="button" href="sign-up.php">Sign Up!</a>
-      </div>
-    </div>
-  </div>
   <div class="w-clearfix section" id="features">
     <div class="w-container">
       <div class="w-row">
