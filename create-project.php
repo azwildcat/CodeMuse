@@ -30,12 +30,12 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
   <div class="w-container">
     <h1>Add a new project</h1>
     <div class="w-form">
-      <form id="email-form" name="project-form-1" method="post" enctype="multipart/form-data" data-redirect="http://profile.php">
+      <form id="email-form" name="project-form-1" method="post" enctype="multipart/form-data" action="insert.php">
         <label for="projectname">Project Name:</label>
         <input class="w-input" id="projectname" type="text" placeholder="Enter project name" name="projectname" required="required" autofocus="autofocus">
         <label for="lastname">Tagline:</label>
         <input class="w-input" id="tagline" type="text" placeholder="Enter a one-sentence description of your project" name="tagline" required="required">
-        <label for="email">Description:</label>
+        <label for="description">Description:</label>
         <textarea class="w-input" id="description" placeholder="Describe your project" name="description"></textarea>
         <label for="tags">Location:</label>
         <select class="w-select" id="state" name="state" data-name="State">
@@ -44,21 +44,18 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
           <option value="Second">Second Choice</option>
           <option value="Third">Third Choice</option>
         </select>
-    </form>
-    <form ame="project-form-2" action="upload.php" method="post" enctype="multipart/form-data">
         <label for="image">Project image:</label>
         <input type="file" name="myfile">
         <input type="submit" value="Upload">
-    </form>
-      <form name="project-form-3" method="post" enctype="multipart/form-data">
         <label for="tags">Tags:</label>
         <input class="w-input" id="tags" type="text" placeholder="Enter a one-sentence description of your project" name="tags">
+
         <label for="tags">Difficulty:</label>
         <select class="w-select" id="state" name="spiciness" required="required">
-          <option value="">Select the spiciness level</option>
-          <option value="1">First Choice</option>
-          <option value="2">Second Choice</option>
-          <option value="3">Third Choice</option>
+          <option value="-1">Select the spiciness level</option>
+          <option value="1">Mild</option>
+          <option value="2">Medium</option>
+          <option value="3">Spicy</option>
         </select>
         
         <input class="w-button" type="submit" value="Submit" data-wait="Please wait...">
@@ -70,6 +67,7 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
         <p>Oops! Something went wrong while submitting the form :(</p>
       </div>
     </div>
+
   </div>
 <div class="section">
     <div class="w-container">
