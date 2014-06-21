@@ -52,19 +52,6 @@ if (mysqli_connect_errno()) {
     </div>
   </header>
 
-  <div class="section hero">
-    <div class="w-row">
-      <div class="w-col w-col-6">
-        <!img src="images/android.png" width="300" alt="53a5122b8b680c4d190ddbae_android.png">
-      <div class="w-container">
-        <h1 id="page-nav-Section-1">PROJECTS</h1>
-        <div class="subtitle"><font color="white">Find exciting projects!</font></div>
-      </div>
-      </div>
-    </div>
-  </div>
-
-
   <div class="section">
 
     <div class="w-container">
