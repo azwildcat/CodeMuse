@@ -234,13 +234,28 @@ p {
   background-image: url('../images/example-bg_2.png');
 }
 .example-image {
+  position: relative;
+  display: block;
   width: 100%;
+  clear: none;
 }
 .searchprojbutton {
+  height: 40px;
   float: right;
 }
 .seachprojtext {
-  padding-left: 141px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  display: block;
+  width: 880px;
+  height: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0px;
+  padding-left: 0px;
+  float: left;
+  clear: both;
 }
 .projcards {
   display: block;
@@ -255,8 +270,8 @@ p {
 }
 .projsearchclass {
   margin-right: -98px;
-  padding-right: 94px;
-  float: none;
+  padding-right: 30px;
+  float: left;
 }
 @media (max-width: 991px) {
   .button {
