@@ -18,7 +18,7 @@ if (mysqli_connect_errno()) {
 <html data-wf-site="53a510758b680c4d190ddb90">
 <head>
   <meta charset="utf-8">
-  <title>Slate Template</title>
+  <title>CodeMuse - Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Webflow">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -45,7 +45,7 @@ if (mysqli_connect_errno()) {
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png" href="index.php">
           <div class="app-name">Codemuse</div>
         </div>
-        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a><a class="nav-link" href="create-project.php">Create Project</a>
         </div>
       </div>
     </div>
