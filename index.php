@@ -27,12 +27,12 @@ session_start();
   <link rel="apple-touch-icon" href="images/webclip-slate.png">
 </head>
 <body>
-  <header class="w-clearfix navbar"><a class="button project-button" href="projects-landing-page.php">Projects</a>
+  <header class="w-clearfix navbar">
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-4">
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png" href="index.php">
-          <div class="app-name">Codemuse</div>
+          <div class="app-name"><a style="text-decoration: none; color: #5c5c5c;" href="http://www.codemuse.me">Codemuse</a></div>
         </div>
         <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
@@ -66,7 +66,7 @@ session_start();
           <p>With CodeMuse, you are able to choose what you want to learn and how you want to learn. Get all the help you need with the several tutorials available</p>
           <div class="w-row">
             <div class="w-col w-col-4">
-              <img src="images/C%2B%2B-logo.jpg" width="100" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
+              <img src="images/cpplogo.jpg" width="100" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
             </div>
             <div class="w-col w-col-4">
               <img src="images/Java_Logo.png" width="60" alt="53a51c8a8b680c4d190ddc3e_Java_Logo.png">
@@ -90,27 +90,9 @@ session_start();
         </div>
       </div>
       <div class="w-row snippet-row">
-         
+        <h4 align="right"><a href="projsearch.php">Search all projects</a></h4>
         <?php
-          function display_tags($pid) {
-            $tags = 
-              mysql_query("SELECT tagName FROM project_tag WHERE pID=$pid");
-            $tag = mysql_fetch_row($tags)[0];
-            echo $tag;
-            while ($tag = mysql_fetch_row($tags)[0]) {
-              echo ", $tag";
-            }
-          }
-
           require("dblogin.php");
-          require("dbconstants.php");
-          $db = mysql_connect(DB_DEV_INSTANCE_NAME,
-                              DB_USERNAME,
-                              DB_PASSWORD);
-          mysql_select_db(DB_DATABASE_NAME);
-
-          if (!$db || $db->connect_error)
-            die("failed to connect to database");
 
           $featured_ids = mysql_query('SELECT pID FROM featured;');
           for ($i = 0; $i < 4; $i++) {

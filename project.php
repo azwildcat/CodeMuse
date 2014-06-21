@@ -27,12 +27,12 @@ session_start();
   <link rel="apple-touch-icon" href="images/webclip-slate.png">
 </head>
 <body>
-  <header class="w-clearfix navbar"><a class="button project-button" href="projects-landing-page.php">Projects</a>
+  <header class="w-clearfix navbar">
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-4">
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png" href="index.php">
-          <div class="app-name">Codemuse</div>
+          <div class="app-name"><a style="text-decoration: none; color: #5c5c5c;" href="www.codemuse.me">Codemuse</a></div>
         </div>
         <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
@@ -43,22 +43,22 @@ session_start();
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6">
-          <h2>Lead your learning path at your own pace.</h2>
-          <p>With CodeMuse, you are able to choose what you want to learn and how you want to learn. Get all the help you need with the several tutorials available</p>
+          <?php
+            require("dblogin.php");
+            if (!$_GET['pid']) die("need a pid!");
+            $proj = mysql_query("SELECT * FROM project where pID="
+                                 .$_GET['pid']);
+            $project = mysql_fetch_row($proj);
+            if (!$project) die("project not found");
+          ?>
+          <h2><?= $project[PROJECT_PNAME] ?></h2>
+          <p><?= $project[PROJECT_PDESCR] ?></p>
           <div class="w-row">
-            <div class="w-col w-col-4">
-              <img src="images/C%2B%2B-logo.jpg" width="100" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
-            </div>
-            <div class="w-col w-col-4">
-              <img src="images/Java_Logo.png" width="60" alt="53a51c8a8b680c4d190ddc3e_Java_Logo.png">
-            </div>
-            <div class="w-col w-col-4">
-              <img src="images/php.png" width="140" alt="53a51cdb8b680c4d190ddc42_php.png">
-            </div>
+            <?php display_tags($_GET['pid']) ?>
           </div>
         </div>
         <div class="w-col w-col-6 center">
-          <img src="images/html-code.gif" width="274" alt="53a51d836ef253ee23c20056_html-code.gif">
+          <h3>Claim this project!</h3>
         </div>
       </div>
     </div>
@@ -67,29 +67,12 @@ session_start();
     <div class="w-container">
       <div class="w-row new-class">
         <div class="w-col w-col-6">
-          <h4>Featured Projects</h4>
+          <h4>See more of our featured projects...</h4>
         </div>
       </div>
       <div class="w-row snippet-row">
          
         <?php
-          function display_tags($pid) {
-            $tags = 
-              mysql_query("SELECT tagName FROM project_tag WHERE pID=$pid");
-            $tag = mysql_fetch_row($tags)[0];
-            echo $tag;
-            while ($tag = mysql_fetch_row($tags)[0]) {
-              echo ", $tag";
-            }
-          }
-
-          require("dblogin.php");
-          require("dbconstants.php");
-          $db = mysql_connect(DB_DEV_INSTANCE_NAME,
-                              DB_USERNAME,
-                              DB_PASSWORD);
-          mysql_select_db(DB_DATABASE_NAME);
-
           if (!$db || $db->connect_error)
             die("failed to connect to database");
 
@@ -123,29 +106,6 @@ session_start();
             }
             mysql_free_result($featured_ids);
         ?>
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="w-container">
-      <div class="w-row">
-        <div class="w-col w-col-6 w-clearfix">
-          <h2>Share with friends</h2>
-          <p>Help to build the Code sharing community and earn extra points in our award center.</p>
-          <div class="w-widget w-widget-twitter social-widget">
-            <iframe src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fcodemuse.me&amp;counturl=codemuse.me&amp;text=Check%20out%20this%20site&amp;count=vertical&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true"
-            style="border: none; overflow: hidden; width: 55px; height: 62px;"></iframe>
-          </div>
-          <div class="w-widget w-widget-gplus social-widget">
-            <div class="g-plusone" data-href="http://webflow.com" data-size="tall" data-annotation="bubble" data-width="120" data-recommendations="false" id="___plusone_0" style="width: 50px; height: 60px; text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; background: transparent;"></div>
-          </div>
-          <div class="w-widget w-widget-facebook social-widget">
-            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fwebflow&amp;layout=box_count&amp;locale=en_US&amp;action=like&amp;show_faces=false&amp;share=false" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 55px; height: 65px;"></iframe>
-          </div>
-        </div>
-        <div class="w-col w-col-6 center">
-          <img src="images/third-section.jpg" width="250" alt="52ddf261b6d2171f780000ad_third-section.jpg">
-        </div>
       </div>
     </div>
   </div>

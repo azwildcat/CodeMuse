@@ -1,7 +1,6 @@
 <?php
 session_start();
 require("db/configDB.inc.php");
-
 ?>
 
 
@@ -35,7 +34,7 @@ require("db/configDB.inc.php");
       <div class="w-row">
         <div class="w-col w-col-4">
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png">
-          <div class="app-name">Codemuse</div>
+          <div class="app-name"><a style="text-decoration: none; color: #5c5c5c;" href="http://www.codemuse.me">Codemuse</a></div>
         </div>
         <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
@@ -45,15 +44,10 @@ require("db/configDB.inc.php");
   <div class="signup-form-div">
     <div class="w-form">
       <form class="sign-up-form-div" id="wf-form-signup-form" name="wf-form-signup-form" data-name="Signup Form" method="POST" action="sign-up.php">
-        <label class="form-label" for="username">Username</label>
         <input class="w-input form-field" id="username" type="text" placeholder="Username" name="username" data-name="Username" required="required">
-        <label class="form-label" for="password">Password</label>
         <input class="w-input form-field" id="password" type="password" placeholder="Password" name="password" data-name="Password" required="required">
-        <label class="form-label" for="firstname">First Name</label>
         <input class="w-input form-field" id="firstname" type="text" placeholder="Enter your first name" name="firstname" data-name="firstname" required="required">
-        <label class="form-label" for="lastname">Last Name</label>
         <input class="w-input form-field" id="lastname" type="text" placeholder="Enter your last name" name="lastname" data-name="lastname" required="required">
-        <label class="form-label" for="email">Email Address:</label>
         <input class="w-input form-field" id="email" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required">
         <input class="w-button form-submit-button" type="submit" value="Submit" data-wait="Please wait...">
       </form>

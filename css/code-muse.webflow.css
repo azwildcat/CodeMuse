@@ -320,7 +320,7 @@ p {
 .sign-up-form-div {
   padding-top: 8px;
   padding-bottom: 14px;
-  background-image: url('../images/pattern-e7lm.png');
+  background-color: #333;
   background-size: 60px;
 }
 .login-box {

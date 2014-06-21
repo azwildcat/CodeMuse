@@ -45,10 +45,10 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
           <option value="Second">Second Choice</option>
           <option value="Third">Third Choice</option>
         </select>
-      -->
         <label for="image">Project image:</label>
         <input type="file" name="myfile">
         <input type="submit" value="Upload">
+      -->
         <label for="tags">Tags:</label>
         <input class="w-input" id="tags" type="text" placeholder="Enter a one-sentence description of your project" name="tags">
 
