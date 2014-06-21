@@ -62,7 +62,6 @@ while($row = mysqli_fetch_array($result))
       $loginFailed = false;
       $_SESSION['username'] = $row['username'];
       echo "SUCCESS!";
-      echo "<html><head><script type='text/javascript'> window.parent.location.href = 'profile.php'; </script></head></html>"; 
     } else 
     {
       echo "LOGIN FAILED!";
@@ -76,6 +75,14 @@ while($row = mysqli_fetch_array($result))
       $loginFailed = false;
     }
     */
+  }
+
+
+
+  // If logged in, redirect to profile
+  if (isset($_SESSION['username']))
+  {
+    echo "<html><head><script type='text/javascript'> window.parent.location.href = 'profile.php'; </script></head></html>"; 
   }
 
 ?>
