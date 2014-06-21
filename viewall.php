@@ -53,19 +53,13 @@ if (mysqli_connect_errno()) {
 
   <div class="section">
     <div class="w-container">
-      <div class="w-form w-clearfix projsearchclass">
-        <form class="w-clearfix searchprojbutton" id="email-form" name="email-form" data-name="Email Form">
-          <input class="w-input seachprojtext" id="search-3" type="email" name="search-3" data-name="Search 3">
-          <input class="w-button searchprojbutton" type="submit" value="Search" data-wait="Please wait...">
-        </form>
-        <div class="w-form-done">
-          <p>Thank you! Your submission has been received!</p>
-        </div>
-        <div class="w-form-fail">
-          <p>Oops! Something went wrong while submitting the form :(</p>
+   <div class="w-row new-class">
+        <div class="w-col w-col-6">
+          <h3>All Projects</h3>
         </div>
       </div>
-    </div>
+
+
 
     <div class="w-container">
       
