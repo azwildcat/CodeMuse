@@ -21,7 +21,9 @@
         <div class="w-col w-col-4 company-column">
           <div class="company-title">CodeMuse</div>
         </div>
-        <div class="w-col w-col-8 nav-bar"><a class="nav-link" href="#page-nav-Section-3" target="_self">Log-in</a><a class="nav-link sign-up" href="mailto:support@webflow.com?subject=Sign me up!" target="_blank">Sign Up</a>
+        <div class="w-col w-col-8 nav-bar">
+          <a class="nav-link" href="#">Log In</a>
+          <a class="nav-link sign-up" href="#">Sign Up</a>
         </div>
       </div>
     </div>
@@ -29,25 +31,19 @@
   <div>
     <div class="hero-bg">
       <div class="w-container">
-        <h1 id="page-nav-Section-1">CodeMuse&nbsp;</h1>
-        <div class="subtitle">A friend in need is a coder indeed.</div>
+        <h1 id="page-nav-Section-1">Learn to make an impact.</h1>
         <div class="subtitle">
-          <?php
-            require("dblogin.php");
-            $sql = mysql_connect(DB_IP_ADDRESS,
-                                 DB_USERNAME,
-                                 DB_PASSWORD
-                                 );
-            mysql_select_db(DB_DATABASE_NAME);
-            if ($sql) {
-              echo "SUCCESS";
-            } else {
-              echo "FAILED";
-            }
-                              
-          ?>
+          With CodeMuse, you can work on what matters. Hone your skills while
+          making a difference in someone's life. Help the causes you care about
+          and see just how far you can go with a little bit of technical
+          knowledge.
         </div>
       </div>
+    </div>
+  </div>
+  <div class="content-bg">
+    <div class="w-container">
+      <h2 id="page-nav-Section-2">Everything is cool when you're part of a team.</h2>
     </div>
   </div>
   <div class="section">
@@ -55,18 +51,34 @@
       <div class="w-row new-class">
         <div class="w-col w-col-6">
           <h4>Featured Projects</h4>
-          <div class="section-description">Some resource description text.</div>
-        </div>
-        <div class="w-col w-col-6 right-col"><a class="more-link" href="#" target="_self">View More</a>
         </div>
       </div>
       <div class="w-row snippet-row">
+          <?php
+            require("dblogin.php");
+            require("dbconstants.php");
+            $db = mysql_connect(DB_IP_ADDRESS,
+                                DB_USERNAME,
+                                DB_PASSWORD
+                                );
+            mysql_select_db(DB_DATABASE_NAME);
+
+            $featured_ids = mysql_query('SELECT pID FROM featured;');
+            for ($i = 0; $i < 4; $i++) {
+              $featured_id = mysql_fetch_row($featured_ids)[0];
+              $featured_result = mysql_query(
+                            "SELECT * FROM project WHERE pID=$featured_id");
+              $featured = mysql_fetch_row($featured_result);
+          ?>
         <div class="w-col w-col-3 w-col-small-6">
           <a class="w-clearfix w-inline-block snippet" href="#">
-            <img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
+            <!--<img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">-->
             <div class="snippet-text-section">
-              <div class="snippet-title">Simple webpage</div>
-              <div class="snippet-text">Learn how to code by creating a simple web-programming webpage.
+              <div class="snippet-title">
+                <?= $featured[PROJECT_PNAME] ?>
+              </div>
+              <div class="snippet-text">
+                <?= $featured[PROJECT_PTAGLINE] ?>
                 <br>
                 <br><strong>Difficulty</strong>: Mild
                 <br><strong>Tags</strong>:&nbsp;HTML, CSS
@@ -74,88 +86,21 @@
             </div>
           </a>
         </div>
-        <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
-            <img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
-            <div class="snippet-text-section">
-              <div class="snippet-title">Greet the world in Python</div>
-              <div class="snippet-text">Learn how to say “Hello world!” in Python.
-                <br>
-                <br>Difficulty: Mild
-                <br>Tags:&nbsp;HTML, CSS
-                <br>Location:&nbsp;Anywhere</div>
-            </div>
-          </a>
-        </div>
-        <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
-            <img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
-            <div class="snippet-text-section">
-              <div class="snippet-title">Library events</div>
-              <div class="snippet-text">Create a site that shows the local library events.
-                <br>
-                <br>Difficulty: Mild
-                <br>Tags:&nbsp;HTML, CSS
-                <br>Location:&nbsp;Los&nbsp;Angeles, CA</div>
-            </div>
-          </a>
-        </div>
-        <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
-            <img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
-            <div class="snippet-text-section">
-              <div class="snippet-title">Hackathon</div>
-              <div class="snippet-text">Help us by creating a form to sign-up for a hackathon.
-                <br>
-                <br>Difficulty: Mild
-                <br>Tags:&nbsp;HTML, CSS
-                <br>Location: Nebraska</div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="w-row secondary-row">
-        <div class="w-col w-col-8 w-col-small-6">
-          <h4>Other important stuff</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus
-            id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-        </div>
-        <div class="w-col w-col-4 w-col-small-6 button-column"><a class="button" href="#">Button Text</a>
-        </div>
+        <?php 
+              mysql_free_result($featured_result);
+            }
+            mysql_free_result($featured_ids);
+        ?>
       </div>
     </div>
   </div>
+  <!--
   <div class="content-bg">
     <div class="w-container">
       <h2 id="page-nav-Section-2">Highlights:&nbsp;Successful projects</h2>
     </div>
   </div>
-  <div class="section">
-    <div class="w-container">
-      <div class="w-row">
-        <div class="w-col w-col-6">
-          <h4>This is some text about this section</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus
-            id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus
-            id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-        </div>
-        <div class="w-col w-col-6">
-          <div class="w-row">
-            <div class="w-col w-col-6">
-              <img class="img-example" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" width="130px" alt="image-placeholder.svg">
-              <img class="img-example" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" width="130px" alt="image-placeholder.svg">
-            </div>
-            <div class="w-col w-col-6">
-              <img class="img-example" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" width="130px" alt="image-placeholder.svg">
-              <img class="img-example" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" width="130px" alt="image-placeholder.svg">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="content-bg two"></div>
+  -->
   <div class="section grey">
     <div class="w-container">
       <div class="w-row secondary-row">

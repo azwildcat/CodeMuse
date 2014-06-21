@@ -10,8 +10,14 @@ handlers:
 - url: /js
   static_dir: js
 
+- url: /images
+  static_dir: images
+
 - url: /profile
   static_dir: profile
+
+- url: /(.*).php
+  script: \1.php
 
 - url: /.*
   script: index.php
