@@ -2,6 +2,7 @@
 session_start();
 require("db/configDB.inc.php");
 $con=mysqli_connect(null, DB_USER, '', "CodeMuse", null, "/cloudsql/animated-guard-617:mydb");
+//$con=mysqli_connect("173.194.109.158", "root", "yaycodemuse", "CodeMuse");
 //$con=mysqli_connect("localhost","root","root","codemuse");
 // Check connection
 if (mysqli_connect_errno()) {
@@ -70,7 +71,7 @@ if (mysqli_connect_errno()) {
       
       <div class="w-row-new-class">
         <div class="w-col-w-col-6">
-          <h3><?php echo $_POST["search-3"]; ?> Projects</h3>
+          <h3><?php echo $_GET['sitem']; ?> Projects</h3>
         </div>
       </div>
 
