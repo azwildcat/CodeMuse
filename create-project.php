@@ -17,10 +17,49 @@
   <link href="http://hayageek.github.io/jQuery-Upload-File/uploadfile.min.css" rel="stylesheet">
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
   <script src="http://hayageek.github.io/jQuery-Upload-File/jquery.uploadfile.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<style>
+form { display: block; margin: 20px auto; background: #eee; border-radius: 10px; padding: 15px }
+</style>
+<script>
+(function() {
+    
+var bar = $('.bar');
+var percent = $('.percent');
+var status = $('#status');
+   
+$('form').ajaxForm({
+    beforeSend: function() {
+        status.empty();
+        var percentVal = '0%';
+        bar.width(percentVal)
+        percent.html(percentVal);
+    },
+    uploadProgress: function(event, position, total, percentComplete) {
+        var percentVal = percentComplete + '%';
+        bar.width(percentVal)
+        percent.html(percentVal);
+    },
+    success: function() {
+        var percentVal = '100%';
+        bar.width(percentVal)
+        percent.html(percentVal);
+    },
+  complete: function(xhr) {
+    status.html(xhr.responseText);
+  }
+}); 
+
+})();       
+</script>
+
 </head>
 <body>
 
   <div class="w-container">
+    <h1>Add a new project</h1>
     <div class="w-form">
       <form id="email-form" name="email-form" data-name="Email Form" data-redirect="http://profile.php">
         <label for="projectname">Project Name:</label>
@@ -29,18 +68,20 @@
         <input class="w-input" id="tagline" type="text" placeholder="Enter a one-sentence description of your project" name="tagline" required="required">
         <label for="email">Description:</label>
         <textarea class="w-input" id="description" placeholder="Describe your project" name="description"></textarea>
+        <label for="tags">Location:</label>
+        <select class="w-select" id="state" name="state" data-name="State">
+          <option value="">Select your state</option>
+          <option value="First">First Choice</option>
+          <option value="Second">Second Choice</option>
+          <option value="Third">Third Choice</option>
+        </select>
+    </form>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
         <label for="image">Project image:</label>
-        <div id="fileuploader">Upload</div>
-        <script>
-        $(document).ready(function()
-                {
-                    $("#fileuploader").uploadFile({
-                            url:"YOUR_FILE_UPLOAD_URL",
-                                fileName:"myfile"
-                                    });
-                    });
-</script>
-
+        <input type="file" name="myfile">
+        <input type="submit" value="Upload">
+    </form>
+      <form>
         <label for="tags">Tags:</label>
         <input class="w-input" id="tags" type="text" placeholder="Enter a one-sentence description of your project" name="tags">
         <label for="tags">Difficulty:</label>
@@ -50,13 +91,7 @@
           <option value="2">Second Choice</option>
           <option value="3">Third Choice</option>
         </select>
-        <label for="tags">Location:</label>
-        <select class="w-select" id="state" name="state" data-name="State">
-          <option value="">Select your state</option>
-          <option value="First">First Choice</option>
-          <option value="Second">Second Choice</option>
-          <option value="Third">Third Choice</option>
-        </select>
+        
         <input class="w-button" type="submit" value="Submit" data-wait="Please wait...">
       </form>
       <div class="w-form-done">
