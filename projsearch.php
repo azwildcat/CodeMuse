@@ -107,7 +107,7 @@ if (mysqli_connect_errno()) {
         ?>
 
         <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
+          <a class="w-clearfix w-inline-block snippet" href="project.php?pid=<?php echo $row["pID"]?>">
             <!img class="example-image" src="images/C%2B%2B-logo.jpg" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
             <img class="example-image" src="http://ii.library.jhu.edu/files/2013/05/MakingGroupProjectsWork-300x148.png" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
             <div class="snippet-text-section">
@@ -124,10 +124,20 @@ if (mysqli_connect_errno()) {
           <div class="w-row">
             <div class="w-col w-col-9">
               <ul class="w-list-unstyled projnavpan">
-                <li><a href="#">Web</a>
+        <?php
+          $i = 0;
+          $sql = "SELECT * FROM tag";
+          $result = mysqli_query($con,$sql);
+          while($row = mysqli_fetch_array($result) and $i < 7) { 
+            $i++;
+        ?>
+
+
+                <li><a href="searchres.php"><?php echo $row[tagName]?></a>
                 </li>
-                <li><a href="#">Python</a>
-                </li>
+                <?php
+          }
+          ?>
               </ul>
             </div>
             <div class="w-col w-col-3 projnavpan"></div>
@@ -152,7 +162,7 @@ if (mysqli_connect_errno()) {
             $i++;
         ?>
         <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
+          <a class="w-clearfix w-inline-block snippet" href="project.php?pid=<?php echo $row["pID"]?>">
             <!img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
             <img class="example-image"
             src="http://ii.library.jhu.edu/files/2013/05/MakingGroupProjectsWork-300x148.png" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
