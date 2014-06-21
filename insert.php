@@ -1,9 +1,5 @@
     <?php
           require("dblogin.php");
-          require("dbconstants.php");
-          $db = mysql_connect(DB_DEV_INSTANCE_NAME,
-                              DB_USERNAME,
-                              DB_PASSWORD);
           mysql_select_db(DB_DATABASE_NAME);
 
           if (!$db || $db->connect_error)
@@ -21,6 +17,7 @@
       if(mysql_query($query))
       { 
         echo "inserted";
+        die("FAIFDSIFDSHFDSHFSF $query");
       } 
       else
       { 

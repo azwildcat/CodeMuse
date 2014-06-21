@@ -2,45 +2,22 @@
   session_start();
   require("db/configDB.inc.php");
 
-  $username = $_SESSION['username'];
-  $password = $_SESSION['password'];
-  $firstname = $_SESSION['firstnamee'];
-  $lastname = $_SESSION['lastnamee'];
-  $email = $_SESSION['email'];
+  $username = mysql_real_escape_string($_SESSION['username']);
+  $password = mysql_real_escape_string($_SESSION['password']);
+  $firstname = mysql_real_escape_string($_SESSION['firstnamee']);
+  $lastname = mysql_real_escape_string($_SESSION['lastnamee']);
+  $email = mysql_real_escape_string($_SESSION['email']);
 
-  $con=mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_DATABASE);
+  $con=mysqli_connect(null, DB_USER, '', "CodeMuse", null, "/cloudsql/animated-guard-617:mydb"); //DB_SERVER,DB_USER,DB_PASS,DB_DATABASE);
   // Check connection
   if (mysqli_connect_error()) 
   {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   } 
 
-  echo "<br>Username: ".$username;
-  echo "<br>First Name: ".$firstname;
-  echo "<br>Last Name: ".$lastname;
-  echo "<br>Password: ".$password;
-  echo "<br>Email: ".$email;
+  $rows = "\"$username\", \"$firstname\", \"$lastname\", \"$password\", \"$email\", \"NE\"";
 
-  $info = mysql_get_client_info();
-echo $info;
-
-/*
-  $sql = "SELECT * FROM user";
-  $result = mysqli_query($con,$sql);
-
-
-  while($row = mysqli_fetch_array($result)) 
-  {
-    echo "<br>";
-    print_r($row);
-  }
-
-*/
-
-
-
-
-  $sql = "INSERT INTO user VALUES ('".$username."','".$firstname."','".$lastname."','".$password."','".$email."','NE')";
+  $sql = "INSERT INTO user(username, firstName, lastName, password, email, stateAbbr) VALUES ($rows)";
 
   if (!mysqli_query($con,$sql)) 
   {
