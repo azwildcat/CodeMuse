@@ -37,6 +37,7 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
         <input class="w-input" id="tagline" type="text" placeholder="Enter a one-sentence description of your project" name="tagline" required="required">
         <label for="description">Description:</label>
         <textarea class="w-input" id="description" placeholder="Describe your project" name="description"></textarea>
+        <!--
         <label for="tags">Location:</label>
         <select class="w-select" id="state" name="state" data-name="State">
           <option value="">Select your state</option>
@@ -44,6 +45,7 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
           <option value="Second">Second Choice</option>
           <option value="Third">Third Choice</option>
         </select>
+      -->
         <label for="image">Project image:</label>
         <input type="file" name="myfile">
         <input type="submit" value="Upload">
@@ -51,8 +53,8 @@ form { display: block; margin: 20px auto; background: #eee; border-radius: 10px;
         <input class="w-input" id="tags" type="text" placeholder="Enter a one-sentence description of your project" name="tags">
 
         <label for="tags">Difficulty:</label>
-        <select class="w-select" id="state" name="spiciness" required="required">
-          <option value="-1">Select the spiciness level</option>
+        <select class="w-select" id="spiciness" name="spiciness" required="required">
+          <option value="0" selected="selected">Select the spiciness level</option>
           <option value="1">Mild</option>
           <option value="2">Medium</option>
           <option value="3">Spicy</option>
