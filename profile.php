@@ -30,7 +30,7 @@
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png">
           <div class="app-name">Codemuse</div>
         </div>
-        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="#">Login</a><a class="nav-link" href="#page-nav-share">Sign Up</a>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
       </div>
     </div>

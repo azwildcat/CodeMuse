@@ -30,14 +30,14 @@
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png">
           <div class="app-name">Codemuse</div>
         </div>
-        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="#">Login</a><a class="nav-link" href="sign-up.html">Sign Up</a>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
       </div>
     </div>
   </header>
   <div class="signup-form-div">
     <div class="w-form">
-      <form class="sign-up-form-div" id="wf-form-signup-form" name="wf-form-signup-form" data-name="Signup Form">
+      <form class="sign-up-form-div" id="wf-form-signup-form" name="wf-form-signup-form" data-name="Signup Form" method="POST" action="submit()">
         <label class="form-label" for="username">Username</label>
         <input class="w-input form-field" id="username" type="text" placeholder="Username" name="username" data-name="Username" required="required">
         <label class="form-label" for="first-name">First Name</label>
@@ -93,3 +93,13 @@
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body>
 </html>
+
+<?php
+
+if(isset($_POST['username']))
+{
+  echo "is set ";
+  echo $_POST['username'];
+}
+
+?>
