@@ -79,58 +79,23 @@ if (mysqli_connect_errno()) {
         </div>
       </div>
     </div>
-    <div class="w-container">
-      <div class="w-row snippet-row">
-      <?php
-          $i = 0;
-          while($row = mysqli_fetch_array($result) and $i < 3) { 
-            $i++;
-        ?>
 
-        <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
-            <!img class="example-image" src="images/C%2B%2B-logo.jpg" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
-            <img class="example-image" src="http://ii.library.jhu.edu/files/2013/05/MakingGroupProjectsWork-300x148.png" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
-            <div class="snippet-text-section">
-              <div class="snippet-title"><?php echo $row["pName"]?></div>
-              <div class="snippet-text"><?php echo $row["pTagline"]?></div>
-            </div>
-          </a>
-        </div>
-        <?php
-          }
-        ?>
-        
-        <div class="w-col w-col-3 w-col-small-6">
-          <div class="w-row">
-            <div class="w-col w-col-9">
-              <ul class="w-list-unstyled projnavpan">
-                <li><a href="#">Web</a>
-                </li>
-                <li><a href="#">Python</a>
-                </li>
-              </ul>
-            </div>
-            <div class="w-col w-col-3 projnavpan"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="w-container">
-      <div class="w-row new-class">
-        <div class="w-col w-col-6">
-          <h4>Popular</h4>
-        </div>
-        <div class="w-col w-col-6 right-col"><a class="more-link" href="viewall.php" target="_self">View All</a>
-        </div>
-      </div>
-      <div class="w-row snippet-row">
+      
 
       <?php
           $result = mysqli_query($con,$sql);
+          $row_cnt = $result->num_rows;
           $i = 0;
-          while($row = mysqli_fetch_array($result) and $i < 4) { 
-            $i++;
+          //while($row = mysqli_fetch_array($result) and $i < 4) { 
+          while($row_cnt > 0) {
+            ?>
+
+      <div class="w-row snippet-row">
+      <?php
+          for ($i = 0; $i < 4 and $row_cnt > 0; $i++) {
+            $row = mysqli_fetch_array($result);
+            $row_cnt--;
         ?>
         <div class="w-col w-col-3 w-col-small-6">
           <a class="w-clearfix w-inline-block snippet" href="#">
@@ -144,6 +109,11 @@ if (mysqli_connect_errno()) {
           </a>
         </div>
         <?php
+          }
+          ?>
+
+      </div>
+          <?php
           }
         ?>
       </div>
