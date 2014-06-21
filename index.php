@@ -34,6 +34,7 @@ session_start();
           <img class="logo" src="images/Keyboard.png" width="23" alt="53a510ea4e0d51ec23981546_Keyboard.png" href="index.php">
           <div class="app-name">Codemuse</div>
         </div>
+<<<<<<< HEAD
         <div class="w-col w-col-8 nav-column"><a class="nav-link" href="login.php">Login</a><a class="nav-link" href="sign-up.php">Sign Up</a>
         </div>
       </div>
@@ -51,9 +52,38 @@ session_start();
     </div>
   </div>
   <div class="w-clearfix section" id="features">
+=======
+        <div class="w-col w-col-8 nav-bar">
+          <a class="nav-link" href="#">Log In</a>
+          <a class="nav-link sign-up" href="#">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="hero-bg">
+      <div class="w-container">
+        <h1 id="page-nav-Section-1">Learn to make an impact.</h1>
+        <div class="subtitle">
+          With CodeMuse, you can work on what matters. Hone your skills while
+          making a difference in someone's life. Help the causes you care about
+          and see just how far you can go with a little bit of technical
+          knowledge.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-bg">
+    <div class="w-container">
+      <h2 id="page-nav-Section-2">Everything is cool when you're part of a team.</h2>
+    </div>
+  </div>
+  <div class="section">
+>>>>>>> FETCH_HEAD
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6">
+<<<<<<< HEAD
           <h2>Lead your learning path at your own pace.</h2>
           <p>With CodeMuse, you are able to choose what you want to learn and how you want to learn. Get all the help you need with the several tutorials available</p>
           <div class="w-row">
@@ -89,6 +119,60 @@ session_start();
     </div>
   </div>
   <div class="section">
+=======
+          <h4>Featured Projects</h4>
+        </div>
+      </div>
+      <div class="w-row snippet-row">
+          <?php
+            require("dblogin.php");
+            require("dbconstants.php");
+            $db = mysql_connect(DB_IP_ADDRESS,
+                                DB_USERNAME,
+                                DB_PASSWORD
+                                );
+            mysql_select_db(DB_DATABASE_NAME);
+
+            $featured_ids = mysql_query('SELECT pID FROM featured;');
+            for ($i = 0; $i < 4; $i++) {
+              $featured_id = mysql_fetch_row($featured_ids)[0];
+              $featured_result = mysql_query(
+                            "SELECT * FROM project WHERE pID=$featured_id");
+              $featured = mysql_fetch_row($featured_result);
+          ?>
+        <div class="w-col w-col-3 w-col-small-6">
+          <a class="w-clearfix w-inline-block snippet" href="#">
+            <!--<img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">-->
+            <div class="snippet-text-section">
+              <div class="snippet-title">
+                <?= $featured[PROJECT_PNAME] ?>
+              </div>
+              <div class="snippet-text">
+                <?= $featured[PROJECT_PTAGLINE] ?>
+                <br>
+                <br><strong>Difficulty</strong>: Mild
+                <br><strong>Tags</strong>:&nbsp;HTML, CSS
+                <br><strong>Location</strong>:&nbsp;Anywhere</div>
+            </div>
+          </a>
+        </div>
+        <?php 
+              mysql_free_result($featured_result);
+            }
+            mysql_free_result($featured_ids);
+        ?>
+      </div>
+    </div>
+  </div>
+  <!--
+  <div class="content-bg">
+    <div class="w-container">
+      <h2 id="page-nav-Section-2">Highlights:&nbsp;Successful projects</h2>
+    </div>
+  </div>
+  -->
+  <div class="section grey">
+>>>>>>> FETCH_HEAD
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6 w-clearfix">

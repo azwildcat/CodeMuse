@@ -9,7 +9,7 @@ CREATE TABLE difficulty (
 );
 
 CREATE TABLE project (
-    pID         INT NOT NULL PRIMARY KEY,
+    pID         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pName       VARCHAR(100),
     pTagline    VARCHAR(140),
     pDescr      VARCHAR(500),
