@@ -1,3 +1,10 @@
+<?php
+session_start();
+require("db/configDB.inc.php");
+
+?>
+
+
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
 <!-- Last Published: Sat Jun 21 2014 07:25:06 GMT+0000 (UTC) -->
@@ -37,13 +44,15 @@
   </header>
   <div class="signup-form-div">
     <div class="w-form">
-      <form class="sign-up-form-div" id="wf-form-signup-form" name="wf-form-signup-form" data-name="Signup Form" method="POST" action="submit()">
+      <form class="sign-up-form-div" id="wf-form-signup-form" name="wf-form-signup-form" data-name="Signup Form" method="POST" action="sign-up.php">
         <label class="form-label" for="username">Username</label>
         <input class="w-input form-field" id="username" type="text" placeholder="Username" name="username" data-name="Username" required="required">
-        <label class="form-label" for="first-name">First Name</label>
-        <input class="w-input form-field" id="first-name" type="text" placeholder="Enter your first name" name="first-name" data-name="First Name" required="required">
-        <label class="form-label" for="last-name">Last Name</label>
-        <input class="w-input form-field" id="last-name" type="text" placeholder="Enter your last name" name="last-name" data-name="Last Name" required="required">
+        <label class="form-label" for="password">Password</label>
+        <input class="w-input form-field" id="password" type="password" placeholder="Password" name="password" data-name="Password" required="required">
+        <label class="form-label" for="firstname">First Name</label>
+        <input class="w-input form-field" id="firstname" type="text" placeholder="Enter your first name" name="firstname" data-name="firstname" required="required">
+        <label class="form-label" for="lastname">Last Name</label>
+        <input class="w-input form-field" id="lastname" type="text" placeholder="Enter your last name" name="lastname" data-name="lastname" required="required">
         <label class="form-label" for="email">Email Address:</label>
         <input class="w-input form-field" id="email" type="email" placeholder="Enter your email address" name="email" data-name="Email" required="required">
         <input class="w-button form-submit-button" type="submit" value="Submit" data-wait="Please wait...">
@@ -95,11 +104,54 @@
 </html>
 
 <?php
-
-if(isset($_POST['username']))
+if (isset($_POST['username']))
 {
-  echo "is set ";
-  echo $_POST['username'];
+
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $firstname = $_POST['firstname'];
+  $lastname = $_POST['lastname'];
+  $email = $_POST['email'];
+
+  echo "<br>Username: ".$username;
+  echo "<br>Password: ".$password;
+  echo "<br>First Name: ".$firstname;
+  echo "<br>Last Name: ".$lastname;
+  echo "<br>Email: ".$email;
+
+  $_SESSION['username'] = $username;
+  $_SESSION['password'] = $password;
+  $_SESSION['firstnamee'] = $firstname;
+  $_SESSION['lastnamee'] = $lastname;
+  $_SESSION['email'] = $email;
+
+  $con=mysqli_connect(DB_SERVER,DB_USER,DB_PASS,DB_DATABASE);
+  // Check connection
+  if (mysqli_connect_errno()) 
+  {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  } 
+
+  // Check if username exists
+  $sql = "SELECT * FROM user WHERE username = '".$username."'";
+  $result = mysqli_query($con,$sql);
+  $row = mysqli_fetch_array($result);
+
+  if ($row) 
+  {
+    echo"username is already in use";
+    echo "<html><head><script type='text/javascript'> alert('Username already exists!'); </script></head></html>"; 
+  } else
+  {
+    mysqli_close($con);
+    echo "<html><head><script type='text/javascript'> window.parent.location.href = 'register.php'; </script></head></html>"; 
+  }
+
+mysqli_close($con);
+
+
+
 }
+
 
 ?>
