@@ -48,10 +48,9 @@ CREATE TABLE city (
 );
 
 CREATE TABLE user (
-    userID        INT NOT NULL PRIMARY KEY,
+    username      VARCHAR(100) NOT NULL PRIMARY KEY,
     firstName     VARCHAR(100) NOT NULL,
     lastName      VARCHAR(100) NOT NULL,
-    username      VARCHAR(100) NOT NULL,
     password      VARCHAR(100) NOT NULL,
     email         VARCHAR(100) NOT NULL,
     stateAbbr     VARCHAR(2) NOT NULL,
