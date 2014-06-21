@@ -48,7 +48,7 @@ session_start();
         </p>
       </div>
       <div class="w-col w-col-6 call-to-action">
-        <h1 class="hero-header">A friend in need is a coder indeed.</h1>
+        <h1 class="hero-header">A coder in need is a friend indeed.</h1>
         <p>
           With CodeMuse, you can work on what matters. Hone your skills while
           making a difference in someone's life. Help the causes you care about
