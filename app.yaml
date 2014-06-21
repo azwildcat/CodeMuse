@@ -16,11 +16,8 @@ handlers:
 - url: /profile
   static_dir: profile
 
-- url: /(.*).php
-  script: \1.php
-
-- url: /([^.]*)
-  script: \1/index.php
+- url: /(.*).php(.*)
+  script: \1.php\2
 
 - url: /.*
   script: index.php

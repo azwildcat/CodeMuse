@@ -103,14 +103,6 @@ session_start();
           }
 
           require("dblogin.php");
-          require("dbconstants.php");
-          $db = mysql_connect(DB_DEV_INSTANCE_NAME,
-                              DB_USERNAME,
-                              DB_PASSWORD);
-          mysql_select_db(DB_DATABASE_NAME);
-
-          if (!$db || $db->connect_error)
-            die("failed to connect to database");
 
           $featured_ids = mysql_query('SELECT pID FROM featured;');
           for ($i = 0; $i < 4; $i++) {

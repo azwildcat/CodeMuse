@@ -43,8 +43,15 @@ session_start();
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-6">
-          <h2>Lead your learning path at your own pace.</h2>
-          <p>With CodeMuse, you are able to choose what you want to learn and how you want to learn. Get all the help you need with the several tutorials available</p>
+          <?php
+            require("dblogin.php");
+            $proj = mysql_query("SELECT * FROM project where pID="
+                                 .$_GET['pid']);
+            $project = mysql_fetch_row($proj);
+            if (!$project) die("project not found");
+          ?>
+          <h2><?= $project[PROJECT_PNAME] ?></h2>
+          <p><?= $project[PROJECT_PDESCR] ?></p>
           <div class="w-row">
             <div class="w-col w-col-4">
               <img src="images/C%2B%2B-logo.jpg" width="100" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
@@ -123,29 +130,6 @@ session_start();
             }
             mysql_free_result($featured_ids);
         ?>
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="w-container">
-      <div class="w-row">
-        <div class="w-col w-col-6 w-clearfix">
-          <h2>Share with friends</h2>
-          <p>Help to build the Code sharing community and earn extra points in our award center.</p>
-          <div class="w-widget w-widget-twitter social-widget">
-            <iframe src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fcodemuse.me&amp;counturl=codemuse.me&amp;text=Check%20out%20this%20site&amp;count=vertical&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true"
-            style="border: none; overflow: hidden; width: 55px; height: 62px;"></iframe>
-          </div>
-          <div class="w-widget w-widget-gplus social-widget">
-            <div class="g-plusone" data-href="http://webflow.com" data-size="tall" data-annotation="bubble" data-width="120" data-recommendations="false" id="___plusone_0" style="width: 50px; height: 60px; text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; background: transparent;"></div>
-          </div>
-          <div class="w-widget w-widget-facebook social-widget">
-            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fwebflow&amp;layout=box_count&amp;locale=en_US&amp;action=like&amp;show_faces=false&amp;share=false" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 55px; height: 65px;"></iframe>
-          </div>
-        </div>
-        <div class="w-col w-col-6 center">
-          <img src="images/third-section.jpg" width="250" alt="52ddf261b6d2171f780000ad_third-section.jpg">
-        </div>
       </div>
     </div>
   </div>
