@@ -23,6 +23,8 @@
       else
       { 
         echo "fail";
+        var_dump($query);
+        die('Invalid query: ' . mysql_error());
       }
 /*
       $project_id = mysql_return_id();
