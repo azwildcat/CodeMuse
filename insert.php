@@ -14,9 +14,9 @@
       $description = mysql_real_escape_string($_POST['description']);
       $details = mysql_real_escape_string($_POST['details']);
 
-      $difficulty = $("#spiciness option:selected").val();
+      $difficulty = document.querySelector("#spiciness option:checked").value;
 
-
+      /* echo $_POST['spiciness'] */
       $query = "INSERT INTO project (pName, pTagline, pDescr, pDetails, pDifficulty) VALUES ('$projectname','$tagline','$description','$details','$difficulty');"; 
       if(mysql_query($query))
       { 

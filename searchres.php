@@ -1,41 +1,16 @@
 <?php
 session_start();
 require("db/configDB.inc.php");
-$con=mysqli_connect(null, DB_USER, '', "CodeMuse", null, "/cloudsql/animated-guard-617:mydb");
+$con=mysqli_connect("173.194.109.158","root","yaycodemuse","CodeMuse");
 //$con=mysqli_connect("localhost","root","root","codemuse");
 // Check connection
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-
 }
 
     // get user's nickname using their unique ID using defined TABLE_USERS table name from config
     $sql = "SELECT * FROM project";
     $result = mysqli_query($con,$sql);
-
-  if (isset($_POST['search-3']))
-  {
-    $loginFailed = true;
-    // get user's nickname using their unique ID using defined TABLE_USERS table name from config
-    $sql = "SELECT * FROM project_tag
-            WHERE tagName='".$_POST['search-3']."'";
-            
-    // since user_id is unique, only one record needs returned
-    //     I use $db->query_first() instead of $db->query() and fetch_array()
-    //     $db->query_first() will return array with first record found
-
-
-    $result = mysqli_query($con,$sql);
-            /*
-    $record = $db->query_first($sql);
-    if (isset($record['username']))
-    {
-      $_SESSION['username'] = $_POST['username'];
-      $loginFailed = false;
-    }
-    */
-  }
-
 ?>
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com-->
@@ -63,7 +38,7 @@ if (mysqli_connect_errno()) {
   <link rel="apple-touch-icon" href="images/webclip-slate.png">
 </head>
 <body>
-  <header class="w-clearfix navbar">
+  <header class="w-clearfix navbar"><a class="button project-button" href="projects-landing-page.php">Projects</a>
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-4">
@@ -75,67 +50,58 @@ if (mysqli_connect_errno()) {
       </div>
     </div>
   </header>
+
+  <div class="section hero">
+    <div class="w-row">
+      <div class="w-col w-col-6">
+        <!img src="images/android.png" width="300" alt="53a5122b8b680c4d190ddbae_android.png">
+      <div class="w-container">
+        <h1 id="page-nav-Section-1">PROJECTS</h1>
+        <div class="subtitle"><font color="white">Find exciting projects!</font></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="section">
     <div class="w-container">
+
       <div class="w-form w-clearfix projsearchclass">
-        <form action="searchres.php" method="post" class="w-clearfix searchprojbutton" id="email-form" name="email-form" data-name="Email Form">
-          <input class="w-input seachprojtext" id="search-3" type="text" name="search-3" data-name="Search 3">
+        <form class="w-clearfix searchprojbutton" id="email-form" name="email-form" data-name="Email Form">
+          <input class="w-input seachprojtext" id="search-3" type="email" name="search-3" data-name="Search 3">
           <input class="w-button searchprojbutton" type="submit" value="Search" data-wait="Please wait...">
         </form>
+        <div class="w-form-done">
+          <p>Thank you! Your submission has been received!</p>
+        </div>
+        <div class="w-form-fail">
+          <p>Oops! Something went wrong while submitting the form :(</p>
+        </div>
       </div>
     </div>
-    <div class="w-container">
-      <div class="w-row snippet-row">
-      <?php
-          $i = 0;
-          while($row = mysqli_fetch_array($result) and $i < 3) { 
-            $i++;
-        ?>
 
-        <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
-            <!img class="example-image" src="images/C%2B%2B-logo.jpg" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
-            <img class="example-image" src="http://ii.library.jhu.edu/files/2013/05/MakingGroupProjectsWork-300x148.png" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
-            <div class="snippet-text-section">
-              <div class="snippet-title"><?php echo $row["pName"]?></div>
-              <div class="snippet-text"><?php echo $row["pTagline"]?></div>
-            </div>
-          </a>
-        </div>
-        <?php
-          }
-        ?>
-        
-        <div class="w-col w-col-3 w-col-small-6">
-          <div class="w-row">
-            <div class="w-col w-col-9">
-              <ul class="w-list-unstyled projnavpan">
-                <li><a href="#">Web</a>
-                </li>
-                <li><a href="#">Python</a>
-                </li>
-              </ul>
-            </div>
-            <div class="w-col w-col-3 projnavpan"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="w-container">
+      
       <div class="w-row new-class">
         <div class="w-col w-col-6">
-          <h4>Popular</h4>
-        </div>
-        <div class="w-col w-col-6 right-col"><a class="more-link" href="viewall.php" target="_self">View All</a>
+          <h4><?php echo $_POST["search-3"]; ?> Projects</h4>
         </div>
       </div>
-      <div class="w-row snippet-row">
 
       <?php
           $result = mysqli_query($con,$sql);
+          $row_cnt = $result->num_rows;
           $i = 0;
-          while($row = mysqli_fetch_array($result) and $i < 4) { 
-            $i++;
+          //while($row = mysqli_fetch_array($result) and $i < 4) { 
+          while($row_cnt > 0) {
+            ?>
+
+      <div class="w-row snippet-row">
+      <?php
+          for ($i = 0; $i < 4 and $row_cnt > 0; $i++) {
+            $row = mysqli_fetch_array($result);
+            $row_cnt--;
         ?>
         <div class="w-col w-col-3 w-col-small-6">
           <a class="w-clearfix w-inline-block snippet" href="#">
@@ -149,6 +115,11 @@ if (mysqli_connect_errno()) {
           </a>
         </div>
         <?php
+          }
+          ?>
+
+      </div>
+          <?php
           }
         ?>
       </div>
