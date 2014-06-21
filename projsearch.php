@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("db/configDB.inc.php");
-$con=mysqli_connect("173.194.109.158","root","yaycodemuse","CodeMuse");
+$con=mysqli_connect(null, DB_USER, '', "CodeMuse", null, "/cloudsql/animated-guard-617:mydb");
 //$con=mysqli_connect("localhost","root","root","codemuse");
 // Check connection
 if (mysqli_connect_errno()) {
@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
   <link rel="apple-touch-icon" href="images/webclip-slate.png">
 </head>
 <body>
-  <header class="w-clearfix navbar"><a class="button project-button" href="projects-landing-page.php">Projects</a>
+  <header class="w-clearfix navbar">
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-4">
@@ -50,20 +50,6 @@ if (mysqli_connect_errno()) {
       </div>
     </div>
   </header>
-
-  <div class="section hero">
-    <div class="w-row">
-      <div class="w-col w-col-6">
-        <!img src="images/android.png" width="300" alt="53a5122b8b680c4d190ddbae_android.png">
-      <div class="w-container">
-        <h1 id="page-nav-Section-1">PROJECTS</h1>
-        <div class="subtitle"><font color="white">Find exciting projects!</font></div>
-      </div>
-      </div>
-    </div>
-  </div>
-
-
   <div class="section">
     <div class="w-container">
       <div class="w-form w-clearfix projsearchclass">
