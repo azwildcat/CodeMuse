@@ -92,7 +92,7 @@ if (mysqli_connect_errno()) {
             $row_cnt--;
         ?>
         <div class="w-col w-col-3 w-col-small-6">
-          <a class="w-clearfix w-inline-block snippet" href="#">
+          <a class="w-clearfix w-inline-block snippet" href="project.php?pid=<?php echo $row["pID"]?>">
             <!img class="example-image" src="http://uploads.webflow.com/placeholder/image-placeholder.svg" alt="image-placeholder.svg">
             <img class="example-image"
             src="http://ii.library.jhu.edu/files/2013/05/MakingGroupProjectsWork-300x148.png" alt="53a51c3b6ef253ee23c20028_C%2B%2B-logo.jpg">
