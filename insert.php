@@ -13,7 +13,7 @@
       $difficulty = document.querySelector("#spiciness option:checked").value;
 
       /* echo $_POST['spiciness'] */
-      $query = "INSERT INTO project (pName, pTagline, pDescr, pDetails, pDifficulty) VALUES ('$projectname','$tagline','$description','$details','$difficulty');"; 
+      $query = "INSERT INTO project (pName, pTagline, pDescr, pDetails, pDifficulty) VALUES ('".$projectname ."','". $tagline ."','".$description."','".$details."','" .$difficulty. "');"; 
       if(mysql_query($query))
       { 
         echo "inserted";
