@@ -23,37 +23,6 @@
 <style>
 form { display: block; margin: 20px auto; background: #eee; border-radius: 10px; padding: 15px }
 </style>
-<script>
-(function() {
-    
-var bar = $('.bar');
-var percent = $('.percent');
-var status = $('#status');
-   
-$('form').ajaxForm({
-    beforeSend: function() {
-        status.empty();
-        var percentVal = '0%';
-        bar.width(percentVal)
-        percent.html(percentVal);
-    },
-    uploadProgress: function(event, position, total, percentComplete) {
-        var percentVal = percentComplete + '%';
-        bar.width(percentVal)
-        percent.html(percentVal);
-    },
-    success: function() {
-        var percentVal = '100%';
-        bar.width(percentVal)
-        percent.html(percentVal);
-    },
-  complete: function(xhr) {
-    status.html(xhr.responseText);
-  }
-}); 
-
-})();       
-</script>
 
 </head>
 <body>
@@ -61,7 +30,7 @@ $('form').ajaxForm({
   <div class="w-container">
     <h1>Add a new project</h1>
     <div class="w-form">
-      <form id="email-form" name="email-form" data-name="Email Form" data-redirect="http://profile.php">
+      <form id="email-form" name="project-form-1" method="post" enctype="multipart/form-data" data-redirect="http://profile.php">
         <label for="projectname">Project Name:</label>
         <input class="w-input" id="projectname" type="text" placeholder="Enter project name" name="projectname" required="required" autofocus="autofocus">
         <label for="lastname">Tagline:</label>
@@ -76,12 +45,12 @@ $('form').ajaxForm({
           <option value="Third">Third Choice</option>
         </select>
     </form>
-      <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form ame="project-form-2" action="upload.php" method="post" enctype="multipart/form-data">
         <label for="image">Project image:</label>
         <input type="file" name="myfile">
         <input type="submit" value="Upload">
     </form>
-      <form>
+      <form name="project-form-3" method="post" enctype="multipart/form-data">
         <label for="tags">Tags:</label>
         <input class="w-input" id="tags" type="text" placeholder="Enter a one-sentence description of your project" name="tags">
         <label for="tags">Difficulty:</label>

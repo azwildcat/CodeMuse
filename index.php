@@ -83,7 +83,7 @@ session_start();
     <div class="w-container">
       <div class="w-row new-class">
         <div class="w-col w-col-6">
-          <h4>Featured Projects</h4>
+          <h2>Featured Projects</h2>
         </div>
       </div>
       <div class="w-row snippet-row">
