@@ -2,6 +2,7 @@
 session_start();
 require("db/configDB.inc.php");
 $con=mysqli_connect(null, DB_USER, '', "CodeMuse", null, "/cloudsql/animated-guard-617:mydb");
+//$con=mysqli_connect("173.194.109.158", "root", "yaycodemuse", "CodeMuse");
 //$con=mysqli_connect("localhost","root","root","codemuse");
 // Check connection
 if (mysqli_connect_errno()) {
@@ -13,12 +14,12 @@ if (mysqli_connect_errno()) {
     $sql = "SELECT * FROM project";
     $result = mysqli_query($con,$sql);
 
-  if (isset($_POST['search-3']))
+  if (isset($_GET['sitem']))
   {
     $loginFailed = true;
     // get user's nickname using their unique ID using defined TABLE_USERS table name from config
     $sql = "SELECT * FROM project_tag
-            WHERE tagName='".$_POST['search-3']."'";
+            WHERE tagName='".$_GET['sitem']."'";
             
     // since user_id is unique, only one record needs returned
     //     I use $db->query_first() instead of $db->query() and fetch_array()
@@ -78,8 +79,8 @@ if (mysqli_connect_errno()) {
   <div class="section">
     <div class="w-container">
       <div class="w-form w-clearfix projsearchclass">
-        <form action="searchres.php" method="post" class="w-clearfix searchprojbutton" id="email-form" name="email-form" data-name="Email Form">
-          <input class="w-input seachprojtext" id="search-3" type="text" name="search-3" data-name="Search 3">
+        <form action="searchres.php" method="get" class="w-clearfix searchprojbutton" id="email-form" name="email-form" data-name="Email Form">
+          <input class="w-input seachprojtext" id="sitem" type="text" name="sitem" data-name="Search 3">
           <input class="w-button searchprojbutton" type="submit" value="Search" data-wait="Please wait...">
         </form>
       </div>
@@ -119,7 +120,7 @@ if (mysqli_connect_errno()) {
         ?>
 
 
-                <li><a href="searchres.php"><?php echo $row[tagName]?></a>
+                <li><a href="searchres.php?sitem=<?= $row["tagName"] ?>"><?php echo $row[tagName]?></a>
                 </li>
                 <?php
           }
