@@ -45,8 +45,13 @@ session_start();
         <img src="images/android.png" width="700" alt="53a5122b8b680c4d190ddbae_android.png">
       </div>
       <div class="w-col w-col-6 call-to-action">
-        <h1 class="hero-header">A friend in need is a coder indeed</h1>
-        <p>Learn code in a interactive way by choosing the projects you are interested in. Become the Big Hacker today!</p><a class="button" href="sign-up.php">Sign Up!</a>
+        <h1 class="hero-header">A friend in need is a coder indeed.</h1>
+        <p>
+          With CodeMuse, you can work on what matters. Hone your skills while
+          making a difference in someone's life. Help the causes you care about
+          and see just how far you can go with a little bit of technical
+          knowledge.
+        </p><a class="button" href="sign-up.php">Sign Up!</a>
       </div>
     </div>
   </div>
@@ -76,15 +81,64 @@ session_start();
   </div>
   <div class="section grey">
     <div class="w-container">
-      <div class="w-row">
-        <div class="w-col w-col-6 center"></div>
+      <div class="w-row new-class">
         <div class="w-col w-col-6">
-          <div class="w-row">
-            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"></div>
-            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"></div>
-            <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"></div>
-          </div>
+          <h4>Featured Projects</h4>
         </div>
+      </div>
+      <div class="w-row snippet-row">
+         
+        <?php
+          function display_tags($pid) {
+            $tags = 
+              mysql_query("SELECT tagName FROM project_tag WHERE pID=$pid");
+            $tag = mysql_fetch_row($tags)[0];
+            echo $tag;
+            while ($tag = mysql_fetch_row($tags)[0]) {
+              echo ", $tag";
+            }
+          }
+
+          require("dblogin.php");
+          require("dbconstants.php");
+          $db = mysql_connect(DB_DEV_INSTANCE_NAME,
+                              DB_USERNAME,
+                              DB_PASSWORD);
+          mysql_select_db(DB_DATABASE_NAME);
+
+          if (!$db || $db->connect_error)
+            die("failed to connect to database");
+
+          $featured_ids = mysql_query('SELECT pID FROM featured;');
+          for ($i = 0; $i < 4; $i++) {
+            $featured_id = mysql_fetch_row($featured_ids)[0];
+            $featured_result = mysql_query(
+                          "SELECT * FROM project WHERE pID=$featured_id");
+            $featured = mysql_fetch_row($featured_result);
+        ?>
+        <div class="w-col w-col-3 w-col-small-6">
+            <div class="snippet-text-section">
+              <div class="snippet-title">
+                <a class="w-clearfix w-inline-block snippet" href="#">
+                  <?= $featured[PROJECT_PNAME] ?>
+                </a>
+              </div>
+              <div class="snippet-text">
+                <?= $featured[PROJECT_PTAGLINE] ?><br>
+                <br>
+                <strong>Difficulty</strong>:
+                  <?= $difficulties[$featured[PROJECT_PDIFFICULTY]] ?>
+                <br>
+                <strong>Tags</strong>:
+                  <?php display_tags($featured[PROJECT_PID]) ?>
+              </div>
+            </div>
+        </div>
+        <?php 
+              mysql_free_result($featured_result);
+            }
+            mysql_free_result($featured_ids);
+        ?>
       </div>
     </div>
   </div>
@@ -95,7 +149,7 @@ session_start();
           <h2>Share with friends</h2>
           <p>Help to build the Code sharing community and earn extra points in our award center.</p>
           <div class="w-widget w-widget-twitter social-widget">
-            <iframe src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fwebflow.com&amp;counturl=webflow.com&amp;text=Check%20out%20this%20site&amp;count=vertical&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true"
+            <iframe src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fcodemuse.me&amp;counturl=codemuse.me&amp;text=Check%20out%20this%20site&amp;count=vertical&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true"
             style="border: none; overflow: hidden; width: 55px; height: 62px;"></iframe>
           </div>
           <div class="w-widget w-widget-gplus social-widget">
@@ -115,10 +169,10 @@ session_start();
     <div class="w-container">
       <div class="w-row">
         <div class="w-col w-col-8">
-          <h2 class="price-text">Suggestions? Send us an email and we will be glad to hear you!</h2>
+          <h2 class="price-text">Suggestions? We would love to hear from you!</h2>
         </div>
         <div class="w-col w-col-4">
-          <a class="w-inline-block button app-button">
+          <a class="w-inline-block button app-button" href="mailto:team@codemuse.me">
             <img src="images/c70e618c.png" width="40" alt="53a5205b8b680c4d190ddc4d_c70e618c.png">
           </a>
         </div>

@@ -1,0 +1,23 @@
+application: animated-guard-617
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /images
+  static_dir: images
+
+- url: /profile
+  static_dir: profile
+
+- url: /(.*).php
+  script: \1.php
+
+- url: /.*
+  script: index.php
