@@ -24,8 +24,7 @@
   $info = mysql_get_client_info();
 echo $info;
 
-
-
+/*
   $sql = "SELECT * FROM user";
   $result = mysqli_query($con,$sql);
 
@@ -36,22 +35,19 @@ echo $info;
     print_r($row);
   }
 
+*/
 
 
 
-
-
-/*
 
   $sql = "INSERT INTO user VALUES ('".$username."','".$firstname."','".$lastname."','".$password."','".$email."','NE')";
 
-  if (!mysqli_query($con,$sql)) {
-  die('Error: ' . mysqli_error($con));
-}
+  if (!mysqli_query($con,$sql)) 
+  {
+    die('Error: ' . mysqli_error($con));
+  }
 
-*/
 
   mysqli_close($con);
-  echo "<html><head><script type='text/javascript'> alert('submitted!'); </script></head></html>";
-  //echo "<html><head><script type='text/javascript'> window.parent.location.href = 'profile.php'; </script></head></html>"; 
+  echo "<html><head><script type='text/javascript'> window.parent.location.href = 'profile.php'; </script></head></html>"; 
 ?>
