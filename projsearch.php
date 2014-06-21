@@ -156,6 +156,7 @@ if (mysqli_connect_errno()) {
       <div class="w-row snippet-row">
 
       <?php
+      $sql = "SELECT * FROM project";
           $result = mysqli_query($con,$sql);
           $i = 0;
           while($row = mysqli_fetch_array($result) and $i < 4) { 
